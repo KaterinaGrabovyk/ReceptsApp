@@ -59,9 +59,5 @@ namespace ReceptsApp
                 }
             }
         }
-        public void AddFile()
-        {
-
-        }
     }
 }

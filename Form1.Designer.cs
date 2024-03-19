@@ -133,6 +133,7 @@
             // checkedListBox2
             // 
             checkedListBox2.CheckOnClick = true;
+            checkedListBox2.Cursor = Cursors.Hand;
             checkedListBox2.FormattingEnabled = true;
             checkedListBox2.Items.AddRange(new object[] { "М'ясні страви", "Рибні страви", "Фруктові та овочеві страви", "Страви з круп'яних продуктів", "Страви з молочних продуктів" });
             checkedListBox2.Location = new Point(8, 367);
@@ -191,6 +192,7 @@
             // 
             // listBox9
             // 
+            listBox9.Cursor = Cursors.No;
             listBox9.FormattingEnabled = true;
             listBox9.ItemHeight = 26;
             listBox9.Location = new Point(512, 97);
@@ -201,9 +203,10 @@
             // 
             // listBox8
             // 
+            listBox8.Cursor = Cursors.Hand;
             listBox8.FormattingEnabled = true;
             listBox8.ItemHeight = 26;
-            listBox8.Items.AddRange(new object[] { "Не обрано", "Здорове харчування", "Страви для веганів або вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
+            listBox8.Items.AddRange(new object[] { "Здорове харчування", "Страви для веганів або вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
             listBox8.Location = new Point(8, 315);
             listBox8.Name = "listBox8";
             listBox8.ScrollAlwaysVisible = true;
@@ -212,9 +215,10 @@
             // 
             // listBox7
             // 
+            listBox7.Cursor = Cursors.Hand;
             listBox7.FormattingEnabled = true;
             listBox7.ItemHeight = 26;
-            listBox7.Items.AddRange(new object[] { "Не обрано", "Азіатська кухня", "Європейська кухня", "ПН-американська кухня", "ПД-американська кухня", "Африканська кухня" });
+            listBox7.Items.AddRange(new object[] { "Азіатська кухня", "Європейська кухня", "ПН-американська кухня", "ПД-американська кухня", "Африканська кухня" });
             listBox7.Location = new Point(8, 224);
             listBox7.Name = "listBox7";
             listBox7.ScrollAlwaysVisible = true;
@@ -223,9 +227,10 @@
             // 
             // listBox6
             // 
+            listBox6.Cursor = Cursors.Hand;
             listBox6.FormattingEnabled = true;
             listBox6.ItemHeight = 26;
-            listBox6.Items.AddRange(new object[] { "Не обрано", "Варіння", "Смаження", "Запікання", "Гриль", "Тушкування", "Пароварка", "Квашення", "Маринування" });
+            listBox6.Items.AddRange(new object[] { "Варіння", "Смаження", "Запікання", "Гриль", "Тушкування", "Пароварка", "Квашення", "Маринування" });
             listBox6.Location = new Point(8, 134);
             listBox6.Name = "listBox6";
             listBox6.ScrollAlwaysVisible = true;
@@ -234,8 +239,9 @@
             // 
             // listBox5
             // 
+            listBox5.Cursor = Cursors.Hand;
             listBox5.ItemHeight = 26;
-            listBox5.Items.AddRange(new object[] { "Не обрано", "Основні страви", "Супи та бульйони", "Салати та закуски", "Десерти та солодощі", "Випічка", "Напої та коктейлі", "Закуски та підливи" });
+            listBox5.Items.AddRange(new object[] { "Основні страви", "Супи та бульйони", "Салати та закуски", "Десерти та солодощі", "Випічка", "Напої та коктейлі", "Закуски та підливи" });
             listBox5.Location = new Point(8, 43);
             listBox5.Name = "listBox5";
             listBox5.ScrollAlwaysVisible = true;
@@ -457,7 +463,7 @@
             listBox4.Cursor = Cursors.Hand;
             listBox4.FormattingEnabled = true;
             listBox4.ItemHeight = 26;
-            listBox4.Items.AddRange(new object[] { "Не обрано", "Здорове харчування", "Страви для веганів або вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
+            listBox4.Items.AddRange(new object[] { "Здорове харчування", "Страви для веганів або вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
             listBox4.Location = new Point(433, 290);
             listBox4.Name = "listBox4";
             listBox4.ScrollAlwaysVisible = true;
@@ -507,7 +513,7 @@
             listBox2.Cursor = Cursors.Hand;
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 26;
-            listBox2.Items.AddRange(new object[] { "Не обрано", "Варіння", "Смаження", "Запікання", "Гриль", "Тушкування", "Пароварка", "Квашення", "Маринування" });
+            listBox2.Items.AddRange(new object[] { "Варіння", "Смаження", "Запікання", "Гриль", "Тушкування", "Пароварка", "Квашення", "Маринування" });
             listBox2.Location = new Point(12, 210);
             listBox2.Name = "listBox2";
             listBox2.ScrollAlwaysVisible = true;
@@ -555,7 +561,7 @@
             listBox3.Cursor = Cursors.Hand;
             listBox3.FormattingEnabled = true;
             listBox3.ItemHeight = 26;
-            listBox3.Items.AddRange(new object[] { "Не обрано", "Азіатська кухня", "Європейська кухня", "ПН-американська кухня", "ПД-американська кухня", "Африканська кухня" });
+            listBox3.Items.AddRange(new object[] { "Азіатська кухня", "Європейська кухня", "ПН-американська кухня", "ПД-американська кухня", "Африканська кухня" });
             listBox3.Location = new Point(12, 290);
             listBox3.Name = "listBox3";
             listBox3.ScrollAlwaysVisible = true;
@@ -568,7 +574,7 @@
             listBox1.FormattingEnabled = true;
             listBox1.ImeMode = ImeMode.NoControl;
             listBox1.ItemHeight = 26;
-            listBox1.Items.AddRange(new object[] { "Не обрано", "Основні страви", "Супи та бульйони", "Салати та закуски", "Десерти та солодощі", "Випічка", "Напої та коктейлі", "Закуски та підливи" });
+            listBox1.Items.AddRange(new object[] { "Основні страви", "Супи та бульйони", "Салати та закуски", "Десерти та солодощі", "Випічка", "Напої та коктейлі", "Закуски та підливи" });
             listBox1.Location = new Point(12, 126);
             listBox1.Name = "listBox1";
             listBox1.ScrollAlwaysVisible = true;
@@ -581,9 +587,9 @@
             About.Controls.Add(label8);
             About.Controls.Add(textBox2);
             About.Controls.Add(label7);
-            About.Location = new Point(4, 29);
+            About.Location = new Point(4, 35);
             About.Name = "About";
-            About.Size = new Size(1058, 695);
+            About.Size = new Size(1058, 689);
             About.TabIndex = 2;
             About.Text = "Допомога";
             About.UseVisualStyleBackColor = true;
