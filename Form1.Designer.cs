@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             Find = new TabPage();
+            info = new TextBox();
+            label20 = new Label();
             checkedListBox2 = new CheckedListBox();
             button2 = new Button();
             button6 = new Button();
@@ -105,6 +107,8 @@
             // 
             // Find
             // 
+            Find.Controls.Add(info);
+            Find.Controls.Add(label20);
             Find.Controls.Add(checkedListBox2);
             Find.Controls.Add(button2);
             Find.Controls.Add(button6);
@@ -130,50 +134,76 @@
             Find.UseVisualStyleBackColor = true;
             Find.Click += Find_Click;
             // 
+            // info
+            // 
+            info.Cursor = Cursors.No;
+            info.Location = new Point(611, 11);
+            info.Multiline = true;
+            info.Name = "info";
+            info.ReadOnly = true;
+            info.ScrollBars = ScrollBars.Vertical;
+            info.Size = new Size(433, 62);
+            info.TabIndex = 23;
+            info.Visible = false;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(8, 277);
+            label20.Name = "label20";
+            label20.Size = new Size(232, 26);
+            label20.TabIndex = 22;
+            label20.Text = "Сировинний склад";
+            // 
             // checkedListBox2
             // 
             checkedListBox2.CheckOnClick = true;
             checkedListBox2.Cursor = Cursors.Hand;
             checkedListBox2.FormattingEnabled = true;
             checkedListBox2.Items.AddRange(new object[] { "М'ясні страви", "Рибні страви", "Фруктові та овочеві страви", "Страви з круп'яних продуктів", "Страви з молочних продуктів" });
-            checkedListBox2.Location = new Point(8, 367);
+            checkedListBox2.Location = new Point(8, 319);
             checkedListBox2.Name = "checkedListBox2";
             checkedListBox2.Size = new Size(412, 120);
             checkedListBox2.TabIndex = 21;
+            checkedListBox2.SelectedIndexChanged += checkedListBox2_SelectedIndexChanged_1;
             // 
             // button2
             // 
-            button2.Location = new Point(178, 548);
+            button2.Cursor = Cursors.Hand;
+            button2.Location = new Point(875, 97);
             button2.Name = "button2";
             button2.Size = new Size(174, 50);
             button2.TabIndex = 20;
-            button2.Text = "Знайти всі";
+            button2.Text = "Показати всі";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // button6
             // 
-            button6.Location = new Point(12, 632);
+            button6.Cursor = Cursors.Hand;
+            button6.Location = new Point(875, 468);
             button6.Name = "button6";
-            button6.Size = new Size(136, 50);
+            button6.Size = new Size(174, 63);
             button6.TabIndex = 19;
             button6.Tag = "";
-            button6.Text = "Очистити";
+            button6.Text = "Очистити поле";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(512, 460);
+            button5.Cursor = Cursors.Hand;
+            button5.Location = new Point(875, 183);
             button5.Name = "button5";
-            button5.Size = new Size(242, 48);
+            button5.Size = new Size(174, 50);
             button5.TabIndex = 18;
-            button5.Text = "Обрати і показати";
+            button5.Text = "Обрати";
             button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(12, 548);
+            button4.Cursor = Cursors.Hand;
+            button4.Location = new Point(61, 577);
             button4.Name = "button4";
             button4.Size = new Size(143, 50);
             button4.TabIndex = 17;
@@ -184,21 +214,20 @@
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(512, 27);
+            label25.Location = new Point(442, 43);
             label25.Name = "label25";
-            label25.Size = new Size(498, 52);
+            label25.Size = new Size(0, 26);
             label25.TabIndex = 16;
-            label25.Text = "Тут відображаються назви всіх рецептів, \r\nабо рецептів обрaних за категоріями.";
             // 
             // listBox9
             // 
-            listBox9.Cursor = Cursors.No;
+            listBox9.Cursor = Cursors.Hand;
             listBox9.FormattingEnabled = true;
             listBox9.ItemHeight = 26;
-            listBox9.Location = new Point(512, 97);
+            listBox9.Location = new Point(442, 97);
             listBox9.Name = "listBox9";
             listBox9.ScrollAlwaysVisible = true;
-            listBox9.Size = new Size(525, 342);
+            listBox9.Size = new Size(427, 550);
             listBox9.TabIndex = 15;
             // 
             // listBox8
@@ -206,12 +235,13 @@
             listBox8.Cursor = Cursors.Hand;
             listBox8.FormattingEnabled = true;
             listBox8.ItemHeight = 26;
-            listBox8.Items.AddRange(new object[] { "Здорове харчування", "Страви для веганів або вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
-            listBox8.Location = new Point(8, 315);
+            listBox8.Items.AddRange(new object[] { "Здорове харчування", "Страви для веганів/вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
+            listBox8.Location = new Point(8, 511);
             listBox8.Name = "listBox8";
             listBox8.ScrollAlwaysVisible = true;
-            listBox8.Size = new Size(471, 30);
+            listBox8.Size = new Size(427, 30);
             listBox8.TabIndex = 10;
+            listBox8.SelectedIndexChanged += listBox8_SelectedIndexChanged_1;
             // 
             // listBox7
             // 
@@ -224,6 +254,7 @@
             listBox7.ScrollAlwaysVisible = true;
             listBox7.Size = new Size(320, 30);
             listBox7.TabIndex = 9;
+            listBox7.SelectedIndexChanged += listBox7_SelectedIndexChanged_1;
             // 
             // listBox6
             // 
@@ -236,6 +267,7 @@
             listBox6.ScrollAlwaysVisible = true;
             listBox6.Size = new Size(196, 30);
             listBox6.TabIndex = 8;
+            listBox6.SelectedIndexChanged += listBox6_SelectedIndexChanged_1;
             // 
             // listBox5
             // 
@@ -247,11 +279,12 @@
             listBox5.ScrollAlwaysVisible = true;
             listBox5.Size = new Size(273, 30);
             listBox5.TabIndex = 7;
+            listBox5.SelectedIndexChanged += listBox5_SelectedIndexChanged_1;
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(8, 286);
+            label21.Location = new Point(8, 468);
             label21.Name = "label21";
             label21.Size = new Size(250, 26);
             label21.TabIndex = 4;
@@ -313,11 +346,11 @@
             Add.Controls.Add(textBox1);
             Add.Controls.Add(listBox3);
             Add.Controls.Add(listBox1);
-            Add.Location = new Point(4, 35);
+            Add.Location = new Point(4, 29);
             Add.Margin = new Padding(5, 4, 5, 4);
             Add.Name = "Add";
             Add.Padding = new Padding(5, 4, 5, 4);
-            Add.Size = new Size(1058, 689);
+            Add.Size = new Size(1058, 695);
             Add.TabIndex = 0;
             Add.Text = "Додати";
             Add.UseVisualStyleBackColor = true;
@@ -325,19 +358,17 @@
             // textBox5
             // 
             textBox5.Cursor = Cursors.IBeam;
-            textBox5.Location = new Point(433, 381);
-            textBox5.MaximumSize = new Size(616, 219);
-            textBox5.MinimumSize = new Size(616, 219);
+            textBox5.Location = new Point(434, 336);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
             textBox5.ScrollBars = ScrollBars.Vertical;
-            textBox5.Size = new Size(616, 219);
+            textBox5.Size = new Size(616, 300);
             textBox5.TabIndex = 25;
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(433, 352);
+            label16.Location = new Point(433, 307);
             label16.Name = "label16";
             label16.Size = new Size(266, 26);
             label16.TabIndex = 24;
@@ -345,7 +376,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 626);
+            button1.Location = new Point(8, 649);
             button1.Name = "button1";
             button1.Size = new Size(140, 40);
             button1.TabIndex = 1;
@@ -356,19 +387,17 @@
             // textBox4
             // 
             textBox4.Cursor = Cursors.IBeam;
-            textBox4.Location = new Point(12, 381);
-            textBox4.MaximumSize = new Size(395, 219);
-            textBox4.MinimumSize = new Size(395, 219);
+            textBox4.Location = new Point(12, 336);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
             textBox4.ScrollBars = ScrollBars.Vertical;
-            textBox4.Size = new Size(395, 219);
+            textBox4.Size = new Size(395, 300);
             textBox4.TabIndex = 23;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(12, 352);
+            label15.Location = new Point(8, 307);
             label15.Name = "label15";
             label15.Size = new Size(148, 26);
             label15.TabIndex = 22;
@@ -376,7 +405,7 @@
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(912, 181);
+            numericUpDown4.Location = new Point(890, 126);
             numericUpDown4.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(53, 34);
@@ -385,7 +414,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(971, 189);
+            label14.Location = new Point(949, 134);
             label14.Name = "label14";
             label14.Size = new Size(46, 26);
             label14.TabIndex = 20;
@@ -394,7 +423,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(841, 189);
+            label13.Location = new Point(819, 134);
             label13.Name = "label13";
             label13.Size = new Size(57, 26);
             label13.TabIndex = 19;
@@ -402,7 +431,7 @@
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(782, 181);
+            numericUpDown3.Location = new Point(760, 126);
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(53, 34);
             numericUpDown3.TabIndex = 18;
@@ -410,7 +439,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(971, 77);
+            label12.Location = new Point(949, 56);
             label12.Name = "label12";
             label12.Size = new Size(46, 26);
             label12.TabIndex = 17;
@@ -419,7 +448,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(841, 77);
+            label11.Location = new Point(819, 56);
             label11.Name = "label11";
             label11.Size = new Size(57, 26);
             label11.TabIndex = 16;
@@ -427,7 +456,7 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(904, 69);
+            numericUpDown2.Location = new Point(882, 48);
             numericUpDown2.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(53, 34);
@@ -435,7 +464,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(782, 69);
+            numericUpDown1.Location = new Point(760, 48);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(53, 34);
             numericUpDown1.TabIndex = 14;
@@ -443,7 +472,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(760, 126);
+            label10.Location = new Point(760, 97);
             label10.Name = "label10";
             label10.Size = new Size(223, 26);
             label10.TabIndex = 13;
@@ -463,17 +492,17 @@
             listBox4.Cursor = Cursors.Hand;
             listBox4.FormattingEnabled = true;
             listBox4.ItemHeight = 26;
-            listBox4.Items.AddRange(new object[] { "Здорове харчування", "Страви для веганів або вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
-            listBox4.Location = new Point(433, 290);
+            listBox4.Items.AddRange(new object[] { "Здорове харчування", "Страви для веганів/вегетаріанців", "Страви для людей з ОДП", "Комфортна їжа" });
+            listBox4.Location = new Point(626, 230);
             listBox4.Name = "listBox4";
             listBox4.ScrollAlwaysVisible = true;
-            listBox4.Size = new Size(468, 30);
+            listBox4.Size = new Size(427, 30);
             listBox4.TabIndex = 11;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(433, 261);
+            label6.Location = new Point(626, 201);
             label6.Name = "label6";
             label6.Size = new Size(250, 26);
             label6.TabIndex = 10;
@@ -485,9 +514,9 @@
             checkedListBox1.Cursor = Cursors.Hand;
             checkedListBox1.FormattingEnabled = true;
             checkedListBox1.Items.AddRange(new object[] { "М'ясні страви", "Рибні страви", "Фруктові та овочеві страви", "Страви з круп'яних продуктів", "Страви з молочних продуктів" });
-            checkedListBox1.Location = new Point(347, 47);
+            checkedListBox1.Location = new Point(321, 47);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(380, 149);
+            checkedListBox1.Size = new Size(406, 120);
             checkedListBox1.TabIndex = 9;
             // 
             // label5
@@ -502,7 +531,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(8, 181);
+            label3.Location = new Point(12, 201);
             label3.Name = "label3";
             label3.Size = new Size(259, 26);
             label3.TabIndex = 7;
@@ -514,7 +543,7 @@
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 26;
             listBox2.Items.AddRange(new object[] { "Варіння", "Смаження", "Запікання", "Гриль", "Тушкування", "Пароварка", "Квашення", "Маринування" });
-            listBox2.Location = new Point(12, 210);
+            listBox2.Location = new Point(16, 230);
             listBox2.Name = "listBox2";
             listBox2.ScrollAlwaysVisible = true;
             listBox2.Size = new Size(195, 30);
@@ -523,7 +552,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(8, 261);
+            label4.Location = new Point(277, 201);
             label4.Name = "label4";
             label4.Size = new Size(206, 26);
             label4.TabIndex = 5;
@@ -562,7 +591,7 @@
             listBox3.FormattingEnabled = true;
             listBox3.ItemHeight = 26;
             listBox3.Items.AddRange(new object[] { "Азіатська кухня", "Європейська кухня", "ПН-американська кухня", "ПД-американська кухня", "Африканська кухня" });
-            listBox3.Location = new Point(12, 290);
+            listBox3.Location = new Point(281, 230);
             listBox3.Name = "listBox3";
             listBox3.ScrollAlwaysVisible = true;
             listBox3.Size = new Size(326, 30);
@@ -587,9 +616,9 @@
             About.Controls.Add(label8);
             About.Controls.Add(textBox2);
             About.Controls.Add(label7);
-            About.Location = new Point(4, 35);
+            About.Location = new Point(4, 29);
             About.Name = "About";
-            About.Size = new Size(1058, 689);
+            About.Size = new Size(1058, 695);
             About.TabIndex = 2;
             About.Text = "Допомога";
             About.UseVisualStyleBackColor = true;
@@ -635,6 +664,7 @@
             // 
             // button3
             // 
+            button3.Cursor = Cursors.Hand;
             button3.Location = new Point(904, 731);
             button3.Name = "button3";
             button3.Size = new Size(153, 40);
@@ -723,5 +753,7 @@
         private Button button6;
         private Button button2;
         private CheckedListBox checkedListBox2;
+        private Label label20;
+        private TextBox info;
     }
 }
