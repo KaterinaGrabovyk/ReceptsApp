@@ -136,13 +136,12 @@
             // 
             // info
             // 
-            info.Cursor = Cursors.No;
-            info.Location = new Point(611, 11);
+            info.Location = new Point(442, 11);
             info.Multiline = true;
             info.Name = "info";
             info.ReadOnly = true;
             info.ScrollBars = ScrollBars.Vertical;
-            info.Size = new Size(433, 62);
+            info.Size = new Size(427, 77);
             info.TabIndex = 23;
             info.Visible = false;
             // 
@@ -165,7 +164,6 @@
             checkedListBox2.Name = "checkedListBox2";
             checkedListBox2.Size = new Size(412, 120);
             checkedListBox2.TabIndex = 21;
-            checkedListBox2.SelectedIndexChanged += checkedListBox2_SelectedIndexChanged_1;
             // 
             // button2
             // 
@@ -186,7 +184,7 @@
             button6.Size = new Size(174, 63);
             button6.TabIndex = 19;
             button6.Tag = "";
-            button6.Text = "Очистити поле";
+            button6.Text = "Очистити всі поля";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
@@ -214,10 +212,11 @@
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(442, 43);
+            label25.Location = new Point(426, 36);
             label25.Name = "label25";
-            label25.Size = new Size(0, 26);
+            label25.Size = new Size(467, 52);
             label25.TabIndex = 16;
+            label25.Text = "Тут з'явиться поле, з усіма\r\nобраними характеристиками рецептів.";
             // 
             // listBox9
             // 
@@ -241,7 +240,6 @@
             listBox8.ScrollAlwaysVisible = true;
             listBox8.Size = new Size(427, 30);
             listBox8.TabIndex = 10;
-            listBox8.SelectedIndexChanged += listBox8_SelectedIndexChanged_1;
             // 
             // listBox7
             // 
@@ -254,7 +252,6 @@
             listBox7.ScrollAlwaysVisible = true;
             listBox7.Size = new Size(320, 30);
             listBox7.TabIndex = 9;
-            listBox7.SelectedIndexChanged += listBox7_SelectedIndexChanged_1;
             // 
             // listBox6
             // 
@@ -267,7 +264,6 @@
             listBox6.ScrollAlwaysVisible = true;
             listBox6.Size = new Size(196, 30);
             listBox6.TabIndex = 8;
-            listBox6.SelectedIndexChanged += listBox6_SelectedIndexChanged_1;
             // 
             // listBox5
             // 
@@ -279,7 +275,6 @@
             listBox5.ScrollAlwaysVisible = true;
             listBox5.Size = new Size(273, 30);
             listBox5.TabIndex = 7;
-            listBox5.SelectedIndexChanged += listBox5_SelectedIndexChanged_1;
             // 
             // label21
             // 

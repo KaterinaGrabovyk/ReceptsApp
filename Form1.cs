@@ -85,7 +85,7 @@ namespace ReceptsApp
                     sr.Close();
                     string data = $"{textBox1.Text}@{cookType1}@{cookType2}@{cookType3}@{check}@{cookType4}@{time1}@{time2}@{ing}@{rec};\n";
                     File.AppendAllText(dataFilePath, data);
-                    MessageBox.Show("Рецепт додано. Поля будуть очищщені", "Information");
+                    MessageBox.Show("Рецепт додано. Поля будуть очищені", "Information");
                     textBox1.Text = "";
                     textBox4.Text = "";
                     textBox5.Text = "";
@@ -109,15 +109,17 @@ namespace ReceptsApp
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            info.Visible = false;
+        { 
+            info.Visible = true;
+            string text = "";
             label25.Location = new Point(519, 47);
             label25.Text = "";
             List<object> list = new List<object>();
-            List<object> res = new List<object>();
             list.Clear();
-            res.Clear();
             listBox9.Items.Clear();
+            bool isHas=false;
+            string[] mas = new string[5];
+            string[] mas2;
             using (StreamReader sr = new StreamReader(dataFilePath))
             {
                 string choose1 = $"{listBox5.SelectedItem}";
@@ -129,74 +131,111 @@ namespace ReceptsApp
                     choose5 += i.ToString() + ".";
                 }
                 string choose4 = $"{listBox8.SelectedItem}";
-                foreach (string l in sr.ReadToEnd().Split(";"))
-                {
-                    string[]mas=l.Split('@');
                     if (listBox5.SelectedItem != null)
                     {
-                        if (l.Contains(choose1))
-                        {
-                            list.Add(mas[0]);
-                        }
-                        info.Visible = true;
-                        label25.Location = new Point(348, 14);
-                        label25.Text = "Тип страви:";
-                        info.Text=choose1;
+                    mas[0] = choose1;
+                    text += choose1+"; ";
+                    }
+                    else
+                    {
+                    mas[0] = "";
                     }
                     if (listBox6.SelectedItem != null)
                     {
-                        if (l.Contains(choose2))
-                        {
-                            list.Add(mas[0]);
-                        }
-                        info.Visible = true;
-                        label25.Location = new Point(348, 14);
-                        label25.Text = "Спосіб приготування:";
-                        info.Text = choose2;
+                        mas[1]=choose2;
+                    text += choose2 + "; ";
+                }
+                    else
+                    {
+                    mas[1] = "";
                     }
                     if (listBox7.SelectedItem != null)
                     {
-                        if (l.Contains(choose3))
-                        {
-                            list.Add(mas[0]);
-                        }
-                        info.Visible = true;
-                        label25.Location = new Point(348, 14);
-                        label25.Text = "Кухонний регіон:";
-                        info.Text = choose3;
-                    }
+                        mas[2]=choose3;
+                    text += choose3 + "; ";
+                }
+                    else
+                    {
+                    mas[2] = "";
+                }
                     if (listBox8.SelectedItem != null)
                     {
-                        if (l.Contains(choose4))
-                        {
-                            list.Add(mas[0]);
-                        }
-                        info.Visible = true;
-                        label25.Location = new Point(348, 14);
-                        label25.Text = "Харчові вподобання:";
-                        info.Text = choose4;
-                    }
+                        mas[3]=choose4;
+                    text += choose4 + "; ";
+                }
+                    else
+                    {
+                    mas[3] = "";
+                }
                     if (checkedListBox2.CheckedItems.Count != 0)
                     {
-                        if (l.Contains(choose5))
-                        {
-                            list.Add(mas[0]);
-
-                        }
-                        info.Visible = true;
-                        label25.Location = new Point(348, 14);
-                        label25.Text = "Сировинний склад:";
-                        info.Text = choose5;
-                    }
-
+                    mas[4] = choose5;
+                    text += choose5 + "; ";
                 }
-                listBox9.Items.AddRange(list.ToArray());
-            }      
-            listBox5.SelectionMode = SelectionMode.One;
-            listBox6.SelectionMode = SelectionMode.One;
-            listBox7.SelectionMode = SelectionMode.One;
-            listBox8.SelectionMode = SelectionMode.One;
-            checkedListBox2.SelectionMode = SelectionMode.One;
+                    else
+                    {
+                    mas[4] = "";
+                }
+                int count = 0;
+                for (int i = 0; i < mas.Length; i++)
+                {
+                    if (mas[i] == "")
+                    {
+                        count += 0;
+                    }
+                    else
+                    {
+                        count++;
+                    }
+                    
+                }
+                mas2 = new string[count];
+                for (int j = 0; j < mas2.Length;)
+                {
+                    for (int i = 0; i < mas.Length;)
+                    {
+
+                        if (mas[i] == "")
+                        {
+                            i++;
+                        }
+                        else
+                        {
+                            mas2[j] = mas[i];
+                            j++;
+                            i++;
+                        }
+                    }
+                }
+                if (text == "")
+                {
+                    info.Text = "Не обрано категорію";
+                }
+                else
+                {
+                    info.Text = text;
+                }
+                foreach(string l in sr.ReadToEnd().Split(";"))
+                {
+                    string[]res=l.Split("@");
+                    for(int i = 0;i<mas2.Length;i++)
+                    {
+                        if (l.Contains(mas2[i]))
+                        {
+                            isHas = true;
+                        }
+                        else
+                        {
+                            isHas=false;
+                            break;
+                        }
+                    }
+                    if (isHas == true)
+                    {
+                        listBox9.Items.Add(res[0]);
+                    }
+                }
+            }
             for (int i = 0; i < checkedListBox2.Items.Count; i++)
             {
                 checkedListBox2.SetItemChecked(i, false);
@@ -207,13 +246,8 @@ namespace ReceptsApp
             listBox6.SelectedItem = null;
             listBox7.SelectedItem = null;
             listBox8.SelectedItem = null;
-            listBox5.Cursor = Cursors.Hand;
-            listBox6.Cursor = Cursors.Hand;
-            listBox7.Cursor = Cursors.Hand;
-            listBox8.Cursor = Cursors.Hand;
-            checkedListBox2.Cursor = Cursors.Hand;
         }
-
+            
         private void button2_Click(object sender, EventArgs e)
         {
             listBox9.Items.Clear();
@@ -238,11 +272,6 @@ namespace ReceptsApp
             info.Visible = false;
             label25.Text = "";
             listBox9.Items.Clear();
-            listBox5.SelectionMode = SelectionMode.One;
-            listBox6.SelectionMode = SelectionMode.One;
-            listBox7.SelectionMode = SelectionMode.One;
-            listBox8.SelectionMode = SelectionMode.One;
-            checkedListBox2.SelectionMode = SelectionMode.One;
             for (int i = 0; i < checkedListBox2.Items.Count; i++)
             {
                 checkedListBox2.SetItemChecked(i, false);
@@ -253,87 +282,7 @@ namespace ReceptsApp
             listBox6.SelectedItem = null;
             listBox7.SelectedItem = null;
             listBox8.SelectedItem = null;
-            listBox5.Cursor = Cursors.Hand;
-            listBox6.Cursor = Cursors.Hand;
-            listBox7.Cursor = Cursors.Hand;
-            listBox8.Cursor = Cursors.Hand;
-            checkedListBox2.Cursor = Cursors.Hand;
         }
 
-
-        private void listBox5_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (listBox5.SelectedItem != null)
-            {
-                listBox6.SelectionMode = SelectionMode.None;
-                listBox7.SelectionMode = SelectionMode.None;
-                listBox8.SelectionMode = SelectionMode.None;
-                checkedListBox2.SelectionMode = SelectionMode.None;
-                listBox6.Cursor = Cursors.No;
-                listBox7.Cursor = Cursors.No;
-                listBox8.Cursor = Cursors.No;
-                checkedListBox2.Cursor= Cursors.No;
-            }
-        }
-
-        private void listBox6_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (listBox6.SelectedItem != null)
-            {
-                listBox5.SelectionMode = SelectionMode.None;
-                listBox7.SelectionMode = SelectionMode.None;
-                listBox8.SelectionMode = SelectionMode.None;
-                checkedListBox2.SelectionMode = SelectionMode.None;
-                listBox5.Cursor = Cursors.No;
-                listBox7.Cursor = Cursors.No;
-                listBox8.Cursor = Cursors.No;
-                checkedListBox2.Cursor = Cursors.No;
-            }
-        }
-
-        private void listBox7_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (listBox7.SelectedItem != null)
-            {
-                listBox6.SelectionMode = SelectionMode.None;
-                listBox5.SelectionMode = SelectionMode.None;
-                listBox8.SelectionMode = SelectionMode.None;
-                checkedListBox2.SelectionMode = SelectionMode.None;
-                listBox5.Cursor = Cursors.No;
-                listBox6.Cursor = Cursors.No;
-                listBox8.Cursor = Cursors.No;
-                checkedListBox2.Cursor = Cursors.No;
-            }
-        }
-
-        private void listBox8_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (listBox8.SelectedItem != null)
-            {
-                listBox6.SelectionMode = SelectionMode.None;
-                listBox7.SelectionMode = SelectionMode.None;
-                listBox5.SelectionMode = SelectionMode.None;
-                checkedListBox2.SelectionMode = SelectionMode.None;
-                listBox5.Cursor = Cursors.No;
-                listBox6.Cursor = Cursors.No;
-                listBox7.Cursor = Cursors.No;
-                checkedListBox2.Cursor = Cursors.No;
-            }
-        }
-
-        private void checkedListBox2_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (checkedListBox2.SelectedItem != null)
-            {
-                listBox6.SelectionMode = SelectionMode.None;
-                listBox7.SelectionMode = SelectionMode.None;
-                listBox8.SelectionMode = SelectionMode.None;
-                listBox5.SelectionMode = SelectionMode.None;
-                listBox5.Cursor = Cursors.No;
-                listBox6.Cursor = Cursors.No;
-                listBox7.Cursor = Cursors.No;
-                listBox8.Cursor = Cursors.No;
-            }
-        }
     }
 }
