@@ -49,6 +49,7 @@
             label18 = new Label();
             label17 = new Label();
             Add = new TabPage();
+            button7 = new Button();
             textBox5 = new TextBox();
             label16 = new Label();
             button1 = new Button();
@@ -172,7 +173,7 @@
             button2.Name = "button2";
             button2.Size = new Size(174, 50);
             button2.TabIndex = 20;
-            button2.Text = "Показати всі";
+            button2.Text = "Всі";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -193,10 +194,11 @@
             button5.Cursor = Cursors.Hand;
             button5.Location = new Point(875, 183);
             button5.Name = "button5";
-            button5.Size = new Size(174, 50);
+            button5.Size = new Size(174, 71);
             button5.TabIndex = 18;
-            button5.Text = "Обрати";
+            button5.Text = "Обрати і показати";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -314,6 +316,7 @@
             // 
             // Add
             // 
+            Add.Controls.Add(button7);
             Add.Controls.Add(textBox5);
             Add.Controls.Add(label16);
             Add.Controls.Add(button1);
@@ -350,6 +353,16 @@
             Add.Text = "Додати";
             Add.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            button7.Location = new Point(434, 646);
+            button7.Name = "button7";
+            button7.Size = new Size(221, 36);
+            button7.TabIndex = 26;
+            button7.Text = "Очистити все";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
             // textBox5
             // 
             textBox5.Cursor = Cursors.IBeam;
@@ -371,7 +384,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(8, 649);
+            button1.Location = new Point(8, 642);
             button1.Name = "button1";
             button1.Size = new Size(140, 40);
             button1.TabIndex = 1;
@@ -451,7 +464,7 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(882, 48);
+            numericUpDown2.Location = new Point(890, 48);
             numericUpDown2.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(53, 34);
@@ -677,7 +690,8 @@
             Font = new Font("Bookman Old Style", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
-            MinimumSize = new Size(825, 633);
+            MaximumSize = new Size(1079, 816);
+            MinimumSize = new Size(1079, 816);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Книга рецептів";
@@ -750,5 +764,6 @@
         private CheckedListBox checkedListBox2;
         private Label label20;
         private TextBox info;
+        private Button button7;
     }
 }
